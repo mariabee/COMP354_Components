@@ -68,6 +68,7 @@ public class BasketModel {
 	}
 	Boolean isEmpty() {
 		if (items.isEmpty()) {
+			System.out.println("Basket is empty");
 			return true;
 		}
 		return false; 
@@ -85,6 +86,9 @@ public class BasketModel {
 	}
 	ArrayList<ProductModel>  getItems() {
 		return (ArrayList<ProductModel>) items.clone(); 
+	}
+	ArrayList<Integer>  getCount() {
+		return (ArrayList<Integer>) count.clone(); 
 	}
 	BasketModel(BasketModel o) {
 		this.items = o.getItems(); 
