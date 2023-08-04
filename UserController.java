@@ -38,9 +38,15 @@ public class UserController {
   
 	void checkout() {
 		if (!BasketModel.isEmpty()) {
-			//////////////
+			int i = 0; 
+			for (ProductModel item : items) {
+				result += item.getName() + ", " + count.get(i) + "\n"; 
+				i++; 
+			}
+			BasketModel.clear();
+			System.out.println("Checkout is complete.");
 		} else
-		System.out.println(" Basket is empty! There is nothing to buy.");
+		System.out.println("Basket is empty! There is nothing to buy.");
 	}
 
 	// Updates the user information in the SQL database by either creating a new entry or changing an existing entry
