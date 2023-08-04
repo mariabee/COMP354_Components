@@ -74,15 +74,15 @@ public class CustomerModel {
 		return address; 
 	}
 	
-	String getUserId() {
+	int getUserId() {
 		return userId; 
 	}
 	
-	String getCustomerBasket() {
+	BasketModel getCustomerBasket() {
 		return customerBasket; 
 	}
 	
-	String getNumberOfCoupons() {
+	int getNumberOfCoupons() {
 		return numberOfCoupons; 
 	}
 
@@ -117,13 +117,13 @@ public class CustomerModel {
 		}
 	}
   
-	int addtem(int productID) {
-		BasketModel.addProduct(productID);
+	int addtem(int ProductModel.id) {
+		BasketModel.addProduct(ProductModel.id.getName());
 		return 1;
 	}
   
-	int removetem(ind productID) {
-		BasketModel.removeProduct(productID);
+	int removetem(int ProductModel.id) {
+		BasketModel.removeProduct(ProductModel.id.getName());
 		return 1; 
 	}
 
