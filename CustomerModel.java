@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 public class CustomerModel {
-	public customerModel customer;
+  public customerModel customer;
   public String username;
   public String email;
   public String password;
@@ -13,7 +13,7 @@ public class CustomerModel {
 
 	
   CustomerModel(){
-		username = "new user"; 
+    username = "new user"; 
     email = "new email";
     password = "new password";
     address = "new address";
@@ -50,7 +50,7 @@ public class CustomerModel {
 		this.customerBasket = customerBasket; 
 	}
 	
-	void setNnumberOfCoupons(int numberOfCoupons) {
+	void setNumberOfCoupons(int numberOfCoupons) {
 		this.numberOfCoupons = numberOfCoupons; 
 	}
 	
@@ -82,20 +82,20 @@ public class CustomerModel {
 		return customerBasket; 
 	}
 	
-	String getNnumberOfCoupons() {
+	String getNumberOfCoupons() {
 		return numberOfCoupons; 
 	}
 
   void updateUserDetails(String username, String email, String password, String address, int userID, BasketModel customerBasket, int numberOfCoupons) {
-		this.username = username;
+    this.username = username;
     this.email = email;
     this.password = password;
     this.address = address;
     this.userId = userId;
     this.customerBasket = customerBasket;
     this.numberOfCoupons = numberOfCoupons;
-		System.out.println(username + " updated as a user.");
-		// Updates the user information in the SQL database by changing an existing entry
+    System.out.println(username + " updated as a user.");
+    // Updates the user information in the SQL database by changing an existing entry
 	}
   
 	int useCoupon(int numberOfCoupons) {
