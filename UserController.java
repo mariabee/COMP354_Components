@@ -8,71 +8,51 @@ public class UserController {
   UserController(){
 		customer = new customerModel(); 
 	}
+
+  void setCustomer(customerModel customer) {
+		this.customer = customer; 
+	}
+
+	customerModel getCustomer() {
+		return customer; 
+	}
 	
-  void addItemToBasket(productModel id) {
-		items.add(item); 
-		count.add(1); 
-		double price = item.getPrice(); 
-		subtotal += price; 
-		tax = (0.15 * subtotal); 
-		total = subtotal + tax; 
+	//Adds a product to the Basket
+  void addItemToBasket(int ProductModel.id) {
+		BasketModel.addProduct(ProductModel.id.getName());
 		System.out.println(item.getName() + " added to basket.");
-		//Adds a product to the Basket and updates the Subtotal, Tax, and Total attributes.  
 	}
   
-	void removeItemFromBasket(productModel id) {
-		int i = 0; 
-		for (ProductModel item : items) {
-			if (item.id == product.id) {
-				double price = item.getPrice() * count.get(i);
-				items.remove(i);
-				count.remove(i); 
-				subtotal -= price; 
-				tax = (0.15 * subtotal); 
-				total = subtotal + tax; 
-				return true; 
-			}
-			i++;
-		}
-		return false; 
+	void removeItemFromBasket(int ProductModel.id) {
+		BasketModel.removeProduct(ProductModel.id.getName());
+		System.out.println(item.getName() + " removed to basket."); 
 	}
   
 	void startWithEmptyBasket() {
-		int i = 0; 
-		for (ProductModel item : items) {
-			if (item.id == product.id) {
-				double price = item.getPrice() * quantity; 
-				count.set(i, quantity);  
-				subtotal += price; 
-				tax = (0.15 * subtotal); 
-				total = subtotal + tax; 
-				return; 
-			}
-			i++;
-		}
+		CustomerModel.setCustomerBasket(new BasketModel());
 	}
   
 	void startWithExistingBasket() {
-		items.clear();
-		count.clear();
-		subtotal = 0; 
-		tax = 0; 
-		total = 0; 
+		CustomerModel.getCustomerBasket();
 	}
   
 	void checkout() {
-		if (items.isEmpty()) {
-			return true;
-		}
-		return false; 
+		if (!BasketModel.isEmpty()) {
+			//////////////
+		} else
+		System.out.println(" Basket is empty! There is nothing to buy.");
 	}
 
-	customerModel updateUserDetails(username, email, password, address)  {
-		return tax;
-	}
-  
-	customerModel getCustomer() {
-		return customer; 
+	// Updates the user information in the SQL database by either creating a new entry or changing an existing entry
+	customerModel updateUserDetails(String username, String email, String password, String address, int userID, BasketModel customerBasket, int numberOfCoupons)  {
+		CustomerModel.username = username;
+    CustomerModel.email = email;
+    CustomerModel.password = password;
+    CustomerModel.address = address;
+    CustomerModel.userId = userId;
+    CustomerModel.customerBasket = customerBasket;
+    CustomerModel.numberOfCoupons = numberOfCoupons;
+    System.out.println(username + " updated user information.");
 	}
 	
 	@Override
