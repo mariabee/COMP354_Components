@@ -11,7 +11,7 @@ public class ProductModel {
 	private int quantity;  
 	private String previewImage; 
 	private ProductModel suggestedItem; 
-	
+	private int totalPurchases;
 	//This is replacing the DB temporarily for testing purposes. 
 	ArrayList<ProductModel> purchaseHistory; 
 	ArrayList<Integer> counts; 
@@ -26,6 +26,7 @@ public class ProductModel {
 		this.price = price; 
 		this.quantity = quantity; 
 		this.previewImage = previewImage; 
+		totalPurchases = 0;
 		purchaseHistory = new ArrayList<ProductModel>(); 
 		counts = new ArrayList<Integer>(); 
 	}
@@ -63,6 +64,9 @@ public class ProductModel {
 	void setPreviewImage(String src) {
 		this.previewImage = src; 
 	}
+	void setTotalPurchases(int n) {
+		totalPurchases = n; 
+	}
 	
 	String getName() {
 		return name; 
@@ -85,10 +89,13 @@ public class ProductModel {
 	ProductModel getSuggestedItem() {
 		return suggestedItem; 
 	}
+	int getTotalPurchases() {
+		return totalPurchases; 
+	}
 	
 	void updateProduct(ArrayList<ProductModel> products) {
 		for (ProductModel product : products) {
-			if (product.name == this.name) {  
+			if (product.id == this.id) {  
 				System.out.println("Updating existing product");
 				product.setDescription(description);
 				product.setName(name);
@@ -97,6 +104,7 @@ public class ProductModel {
 				product.setWeight(weight); 
 				product.setPreviewImage(previewImage);
 				product.addSuggestedItem();
+				product.setTotalPurchases((product.getTotalPurchases() + totalPurchases));
 				return; 
 			}
 		}
